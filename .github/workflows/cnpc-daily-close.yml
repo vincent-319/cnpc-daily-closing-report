@@ -1,0 +1,40 @@
+name: CNPC Daily Close
+
+on:
+  schedule:
+    # 16:00 Asia/Shanghai, Monday-Friday.
+    - cron: "0 8 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch CNPC daily close
+        run: python fetch_cnpc_close.py
+
+      - name: Commit daily close JSON
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cnpc_daily_close.json
+          if git diff --cached --quiet; then
+            echo "No cnpc_daily_close.json changes to commit"
+          else
+            git commit -m "Update CNPC daily close"
+            git push
+          fi
