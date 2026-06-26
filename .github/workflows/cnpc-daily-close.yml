@@ -24,6 +24,16 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
+      - name: Verify checked-out scripts
+        run: |
+          echo "=== fetch_cnpc_close.py head ==="
+          head -n 40 fetch_cnpc_close.py
+          echo "=== search key functions ==="
+          grep -n "fetch_latest" fetch_cnpc_close.py || true
+          grep -n "YAHOO_URL\|fetch_yahoo_chart\|fallback_previous_close" fetch_cnpc_close.py || true
+          echo "=== python syntax check ==="
+          python -m py_compile fetch_cnpc_close.py
+          python -m py_compile generate_cnpc_report.py
       - name: Fetch CNPC daily close
         run: python fetch_cnpc_close.py
 
