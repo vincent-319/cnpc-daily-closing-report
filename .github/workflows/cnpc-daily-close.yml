@@ -27,14 +27,17 @@ jobs:
       - name: Fetch CNPC daily close
         run: python fetch_cnpc_close.py
 
-      - name: Commit daily close JSON
+      - name: Generate CNPC daily report
+        run: python generate_cnpc_report.py
+
+      - name: Commit daily close and report
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add cnpc_daily_close.json
+          git add cnpc_daily_close.json cnpc_daily_report.md
           if git diff --cached --quiet; then
-            echo "No cnpc_daily_close.json changes to commit"
+            echo "No CNPC daily close or report changes to commit"
           else
-            git commit -m "Update CNPC daily close"
+            git commit -m "Update CNPC daily close and report"
             git push
           fi
