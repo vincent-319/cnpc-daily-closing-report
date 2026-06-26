@@ -1,16 +1,16 @@
 # PetroChina A-share Daily Closing Report
 
-- Report date: 2026-06-26T17:37:43+08:00
+- Report date: 2026-06-27T00:29:40+08:00
 - JSON quote date: 2026-06-26
 - Stock/code: 中国石油 / 601857.SH
 - Open: 8.96 CNY
 - Close: 8.93 CNY
 - High: 9.00 CNY
 - Low: 8.76 CNY
-- Volume: 1.97 亿
-- Source: yahoo_chart
+- Volume: 197.13 万
+- Source: eastmoney_push2his_kline
 - Status/freshness: ok - 最新脚本抓取交易日收盘数据
-- fetched_at: 2026-06-26T17:37:43+08:00
+- fetched_at: 2026-06-27T00:29:40+08:00
 
 ## 简短结论
 
