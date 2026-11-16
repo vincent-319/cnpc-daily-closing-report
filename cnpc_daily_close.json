@@ -1,13 +1,13 @@
 {
   "stock": "中国石油",
   "code": "601857.SH",
-  "date": "2026-11-13",
-  "open": 12.08,
-  "close": 12.39,
-  "high": 12.45,
-  "low": 12.03,
-  "volume": 1903999.0,
-  "fetched_at": "2026-11-13T23:58:06+08:00",
+  "date": "2026-11-16",
+  "open": 12.43,
+  "close": 12.47,
+  "high": 12.66,
+  "low": 12.35,
+  "volume": 1795704.0,
+  "fetched_at": "2026-11-17T02:03:23+08:00",
   "source": "eastmoney_push2his_kline",
   "status": "ok"
 }
